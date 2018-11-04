@@ -23,23 +23,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk
 $(call inherit-product, device/motorola/cedric/device.mk)
 
 # Inherit some common GZOSP stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
-
-#GAPPs
-TARGET_GAPPS_ARCH := arm64
-
-# Boot animation
-TARGET_SCREEN_WIDTH := 1080
-TARGET_SCREEN_HEIGHT := 1920
+$(call inherit-product, vendor/paosp/config/common_full_phone.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := cedric
-PRODUCT_NAME := aosp_cedric
+PRODUCT_NAME := paosp_cedric
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
-
-PRODUCT_ENFORCE_RRO_TARGETS := \
-    framework-res
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
@@ -50,3 +40,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="cedric-7.0/NPPS25.137-72-4/4:user/release-keys"
 
 BUILD_FINGERPRINT := motorola/cedric/cedric:7.0/NPPS25.137-72-4/4:user/release-keys
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.paosp.maintainer=p8tgames
+    
+    
